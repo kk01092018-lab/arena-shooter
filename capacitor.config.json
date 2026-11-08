@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.arenashooter",
+  "appName": "Arena Shooter",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}

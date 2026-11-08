@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Arena Shooter</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#000;touch-action:none;user-select:none;-webkit-user-select:none;font-family:system-ui,sans-serif;color:#fff}
+canvas{display:block}
+#hud{position:fixed;inset:0;pointer-events:none}
+#hpwrap{position:absolute;left:3vw;top:3vh;width:34vw;max-width:260px;height:14px;background:rgba(0,0,0,.5);border:2px solid #fff8;border-radius:8px;overflow:hidden}
+#hp{height:100%;width:100%;background:#e74c3c}
+#info{position:absolute;top:3vh;left:50%;transform:translateX(-50%);font-weight:700;font-size:18px;text-shadow:0 2px 4px #000}
+#cross,#hit{position:absolute;left:50%;top:50%;width:24px;height:24px;margin:-12px 0 0 -12px}
+#cross{opacity:.85;background:linear-gradient(#fff,#fff) center/2px 40% no-repeat,linear-gradient(#fff,#fff) center/40% 2px no-repeat}
+#hit{opacity:0;transition:opacity .15s;background:linear-gradient(#f33,#f33) center/3px 100% no-repeat,linear-gradient(#f33,#f33) center/100% 3px no-repeat;transform:rotate(45deg)}
+#dmg{position:absolute;inset:0;opacity:0;background:radial-gradient(transparent 40%,rgba(255,0,0,.55))}
+#banner{position:absolute;top:22%;width:100%;text-align:center;font-size:40px;font-weight:800;opacity:0;transition:opacity .5s;text-shadow:0 3px 8px #000}
+#joy{position:absolute;display:none;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;border:3px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1)}
+#knob{position:absolute;left:30px;top:30px;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.5)}
+#fire{position:fixed;right:7vw;bottom:14vh;width:110px;height:110px;border-radius:50%;background:rgba(255,60,60,.35);border:3px solid rgba(255,255,255,.6);display:none;align-items:center;justify-content:center;font-weight:800;z-index:5}
+#fire.on{background:rgba(255,60,60,.7)}
+body.playing #fire{display:flex}
+#msg{position:fixed;inset:0;z-index:10;background:rgba(5,8,15,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+#msg h1{font-size:48px;margin:0 0 10px;letter-spacing:3px}
+#msg p{margin:6px 0;opacity:.85}
+#msg .big{font-size:26px;font-weight:800;margin-top:22px;opacity:1;animation:p 1s infinite alternate}
+@keyframes p{to{opacity:.4}}
+</style></head><body>
+<div id="hud">
+  <div id="hpwrap"><div id="hp"></div></div>
+  <div id="info"></div>
+  <div id="cross"></div><div id="hit"></div><div id="dmg"></div>
+  <div id="banner"></div>
+  <div id="joy"><div id="knob"></div></div>
+</div>
+<div id="fire">FIRE</div>
+<div id="msg"><h1>ARENA SHOOTER</h1>
+<p>Left thumb: move &nbsp;·&nbsp; Right thumb: look &nbsp;·&nbsp; FIRE button: shoot</p>
+<p>Headshots do double damage. Green cubes heal you.</p>
+<p>(PC: WASD + mouse + click)</p>
+<p class="big">TAP TO START</p></div>
+<script src="three.min.js"></script>
+<script src="game.js"></script>
+</body></html>
